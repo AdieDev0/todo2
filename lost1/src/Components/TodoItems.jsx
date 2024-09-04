@@ -4,7 +4,7 @@ import { GoTrash } from "react-icons/go";
 
 const TodoItems = ({ text, id, isComplete, deleteTodo, toggle }) => {
   return (
-    <div className="flex items-center my-3 gap-2 bg-white p-2 rounded-lg shadow-xl">
+    <div className="flex items-center my-3 gap-2 bg-white p-2 rounded-lg shadow-xl ">
       {/*---Done check box and text notes---*/}
       <div
         onClick={() => {
