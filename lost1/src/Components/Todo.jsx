@@ -52,7 +52,14 @@ const Todo = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Marquee */}
-      <Marquee>Hello</Marquee>
+      <Marquee>
+        <p>Organize your tasks</p>
+        <p>Plan your day</p>
+        <p>Schedule your tasks</p>
+        <p>Arrange your agenda</p>
+        <p>Set your goals</p>
+        <p>Manage your tasks</p>
+      </Marquee>
       {/* box */}
       <div className="p-8 lg:p-20">
         <div className="bg-stone-300 w-full max-w-md h-auto mx-auto p-6 rounded-xl flex flex-col border-dashed border-2 border-black">
