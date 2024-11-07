@@ -10,7 +10,6 @@ const Todo = () => {
   );
   const inputRef = useRef();
 
-  /*---Add a new todo item---*/
   const addTodo = () => {
     const inputText = inputRef.current.value.trim();
 
@@ -25,19 +24,16 @@ const Todo = () => {
     inputRef.current.value = "";
   };
 
-  /*---Handle Enter Key Press---*/
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       addTodo();
     }
   };
 
-  /*---Delete a todo item by id---*/
   const deleteTodo = (id) => {
     setTodoList((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
   };
 
-  /*---Toggle the completion status of a todo item---*/
   const toggleTodo = (id) => {
     setTodoList((prevTodos) =>
       prevTodos.map((todo) =>
@@ -46,14 +42,12 @@ const Todo = () => {
     );
   };
 
-  /*---Persist the todo list in local storage---*/
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todolist));
   }, [todolist]);
 
   return (
     <div className="bg-white h-screen flex flex-col relative">
-      {/* Top Marquee */}
       <Marquee autoFill className="text-yellow-300 bg-black h-12">
         {[
           "Organize your tasks",
@@ -70,7 +64,6 @@ const Todo = () => {
         ))}
       </Marquee>
 
-      {/* Todo Input and List */}
       <div className="flex-1 p-8 lg:p-20 overflow-hidden">
         <div className="bg-stone-300 w-full max-w-md mx-auto p-6 rounded-xl flex flex-col border-dashed border-2 border-black">
           <div className="text-black flex items-center gap-2">
@@ -78,7 +71,6 @@ const Todo = () => {
             <p className="font-Fredericka text-xl sm:text-2xl">Task Agenda</p>
           </div>
 
-          {/* Add Todo */}
           <div className="mt-6 flex flex-col sm:flex-row">
             <input
               ref={inputRef}
@@ -98,7 +90,9 @@ const Todo = () => {
           {/* Todo Items */}
           <div className="mt-5 overflow-y-auto flex-1 max-h-[400px]">
             {todolist.length === 0 ? (
-              <p className="text-gray-500 text-center mt-4">No tasks yet. Add some!</p>
+              <p className="text-gray-500 text-center mt-4">
+                No tasks yet. Add some!
+              </p>
             ) : (
               todolist.map((item) => (
                 <TodoItems
@@ -116,7 +110,11 @@ const Todo = () => {
       </div>
 
       {/* Bottom Marquee */}
-      <Marquee autoFill direction="right" className="text-yellow-300 bg-black h-12 absolute bottom-0 w-full">
+      <Marquee
+        autoFill
+        direction="right"
+        className="text-yellow-300 bg-black h-12 absolute bottom-0 w-full"
+      >
         {[
           "Organize your tasks",
           "Plan your day",
